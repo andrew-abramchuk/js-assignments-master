@@ -23,31 +23,31 @@
  *    console.log(r.getArea());   // => 200
  */
 function Rectangle(width, height) {
-  this.width = width;
-      this.height = height;
-  /*var rect = {
-    width: width,
-    height:  height,
-    getArea(){  return width*height;  }
-  }
-  return rect;*/
+    this.width = width;
+    this.height = height;
+    /*var rect = {
+      width: width,
+      height:  height,
+      getArea(){  return width*height;  }
+    }
+    return rect;*/
 }
 
-Rectangle.prototype.getArea = function () {
-    return this.width * this.height;
-}
-/**
- * Returns the JSON representation of specified object
- *
- * @param {object} obj
- * @return {string}
- *
- * @example
- *    [1,2,3]   =>  '[1,2,3]'
- *    { width: 10, height : 20 } => '{"height":10,"width":20}'
- */
+Rectangle.prototype.getArea = function() {
+        return this.width * this.height;
+    }
+    /**
+     * Returns the JSON representation of specified object
+     *
+     * @param {object} obj
+     * @return {string}
+     *
+     * @example
+     *    [1,2,3]   =>  '[1,2,3]'
+     *    { width: 10, height : 20 } => '{"height":10,"width":20}'
+     */
 function getJSON(obj) {
-  return JSON.stringify(obj);
+    return JSON.stringify(obj);
 }
 
 
@@ -63,7 +63,7 @@ function getJSON(obj) {
  *
  */
 function fromJSON(proto, json) {
-  return Object.setPrototypeOf(JSON.parse(json), proto);
+    return Object.setPrototypeOf(JSON.parse(json), proto);
 }
 
 
@@ -118,15 +118,15 @@ function fromJSON(proto, json) {
 const cssSelectorBuilder = {
 
     element: function(value) {
-return value;
+        return value;
     },
 
     id: function(value) {
-return '#'+value;
+        return '#' + value;
     },
 
     class: function(value) {
-      return '.'+value;
+        return '.' + value;
 
     },
 

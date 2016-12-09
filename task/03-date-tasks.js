@@ -37,7 +37,7 @@ function parseDataFromRfc2822(value) {
  *    '2016-01-19T08:07:37Z' => Date()
  */
 function parseDataFromIso8601(value) {
-   return Date.parse(value);
+    return Date.parse(value);
 }
 
 
@@ -56,8 +56,8 @@ function parseDataFromIso8601(value) {
  *    Date(2015,1,1)    => false
  */
 function isLeapYear(date) {
-var year = date.getFullYear();
-   return ((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0);
+    var year = date.getFullYear();
+    return ((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0);
 }
 
 
@@ -77,11 +77,11 @@ var year = date.getFullYear();
  *    Date(2000,1,1,10,0,0),  Date(2000,1,1,15,20,10,453)   => "05:20:10.453"
  */
 function timeSpanToString(startDate, endDate) {
-  var st = new Date(startDate);
-  var ed = new Date(endDate);
-  var bt = new Date(ed.getTime() - st.getTime());
-  var result = (parseFloat(bt.getUTCHours()) % 10 == 0 && parseFloat(bt.getUTCHours()) != 0 ? "" : "0") + bt.getUTCHours()  + ":" + (parseFloat(bt.getUTCMinutes()) % 10 == 0 && parseFloat(bt.getUTCMinutes()) != 0 ? "" : "0") + bt.getUTCMinutes() + ":" + (parseFloat(bt.getUTCSeconds()) % 10 == 0 && parseFloat(bt.getUTCSeconds()) != 0 ? "" : "0")  + bt.getUTCSeconds() + "." + (parseFloat(bt.getUTCMilliseconds()) % 1000 == 0 && parseFloat(bt.getUTCMilliseconds()) == 0 ? "00" : "") + bt.getUTCMilliseconds();
-  return result;
+    var start = new Date(startDate);
+    var end = new Date(endDate);
+    var result = new Date(end.getTime() - start.getTime()).toISOString().slice(11, -1);
+
+    return result;
 }
 
 
@@ -99,10 +99,11 @@ function timeSpanToString(startDate, endDate) {
  *    Date.UTC(2016,3,5,21, 0) => Math.PI/2
  */
 function angleBetweenClockHands(date) {
-var min = new Date(date).getUTCMinutes(), h = new Date(date).getUTCHours()-12;
-var angle = Math.abs((h * 30 + min * 0.5) - (min * 6));
-var res = Math.min(angle, 360 - angle);
-      return res*Math.PI/180;
+    var min = new Date(date).getUTCMinutes(),
+        h = new Date(date).getUTCHours() - 12;
+    var angle = Math.abs((h * 30 + min * 0.5) - (min * 6));
+    var res = Math.min(angle, 360 - angle);
+    return res * Math.PI / 180;
 }
 
 

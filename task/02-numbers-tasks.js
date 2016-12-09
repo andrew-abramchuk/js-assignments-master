@@ -22,7 +22,7 @@
  *   5, 5  => 25
  */
 function getRectangleArea(width, height) {
-    return width*height;
+    return width * height;
 }
 
 
@@ -38,7 +38,7 @@ function getRectangleArea(width, height) {
  *   0    => 0
  */
 function getCicleCircumference(radius) {
-    return 2*Math.PI*radius;
+    return 2 * Math.PI * radius;
 }
 
 /**
@@ -54,7 +54,7 @@ function getCicleCircumference(radius) {
  *  -3, 3  => 0
  */
 function getAverage(value1, value2) {
-    return value1/2 + value2/2;
+    return value1 / 2 + value2 / 2;
 }
 
 /**
@@ -73,7 +73,7 @@ function getAverage(value1, value2) {
  *   (-5,0) (10,-10) => 18.027756377319946
  */
 function getDistanceBetweenPoints(x1, y1, x2, y2) {
-    return Math.pow((x2-x1)*(x2-x1) + (y2-y1)*(y2-y1), 0.5);
+    return Math.pow((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1), 0.5);
 }
 
 /**
@@ -89,7 +89,7 @@ function getDistanceBetweenPoints(x1, y1, x2, y2) {
  *   5*x = 0         => 0
  */
 function getLinearEquationRoot(a, b) {
-    return (-b/a);
+    return (-b / a);
 }
 
 
@@ -111,9 +111,9 @@ function getLinearEquationRoot(a, b) {
  *   (0,1) (1,2)     => 0
  */
 function getAngleBetweenVectors(x1, y1, x2, y2) {
-  var res=Math.acos((x1*x2+y1*y2)/(Math.sqrt(x1*x1+y1*y1)*Math.sqrt(x2*x2+y2*y2)));
-return res;
-    }
+    var res = Math.acos((x1 * x2 + y1 * y2) / (Math.sqrt(x1 * x1 + y1 * y1) * Math.sqrt(x2 * x2 + y2 * y2)));
+    return res;
+}
 
 /**
  * Returns a last digit of a integer number.
@@ -128,7 +128,7 @@ return res;
  *     0     => 0
  */
 function getLastDigit(value) {
-    return value%10;
+    return value % 10;
 }
 
 
@@ -144,10 +144,10 @@ function getLastDigit(value) {
  * '-525.5'     => -525.5
  */
 function parseNumberFromString(value) {
-var q = 0;
-  if (value.indexOf('.'))
-  q = parseFloat(value);
-  else q = parseInt(value);
+    var q = 0;
+    if (value.indexOf('.'))
+        q = parseFloat(value);
+    else q = parseInt(value, 10);
     return q;
 }
 
@@ -164,8 +164,8 @@ var q = 0;
  *   3,3,3   => 5.196152422706632
  *   1,2,3   => 3.741657386773941
  */
-function getParallelipidedDiagonal(a,b,c) {
-  return Math.sqrt(a*a +b*b+c*c);
+function getParallelipidedDiagonal(a, b, c) {
+    return Math.sqrt(a * a + b * b + c * c);
 }
 
 /**
@@ -186,9 +186,9 @@ function getParallelipidedDiagonal(a,b,c) {
  *   1678, 3  => 2000
  */
 function roundToPowerOfTen(num, pow) {
- var powpow = Math.pow(10,pow);
-  return Math.round(num / powpow) * powpow;
- }
+    var powpow = Math.pow(10, pow);
+    return Math.round(num / powpow) * powpow;
+}
 
 /**
  * Returns true is the number is prime; otherwise false.
@@ -208,12 +208,12 @@ function roundToPowerOfTen(num, pow) {
  *   17 => true
  */
 function isPrime(n) {
-  for(var i = 2; i < n; i++){
-    if (n % i === 0){
-      return false;
+    for (var i = 2; i < n; i++) {
+        if (n % i === 0) {
+            return false;
+        }
     }
-  }
-  return n > 1;
+    return n > 1;
 }
 
 /**
@@ -232,10 +232,10 @@ function isPrime(n) {
  *   toNumber(new Number(42), 0) => 42
  */
 function toNumber(value, def) {
-  if(!isNaN(parseInt(value)) && isFinite(value))
-         return value;
-     else
-         return def;
+    if (!isNaN(parseInt(value, 10)) && isFinite(value))
+        return value;
+    else
+        return def;
     return res;
 }
 
